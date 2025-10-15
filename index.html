@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카드 뒤집기 게임</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="page-header">
+        <h1>카드 뒤집기 기억력 게임</h1>
+        <p class="subtitle">같은 그림 두 장을 찾아 모두 맞춰보세요!</p>
+    </header>
+
+    <main class="game-wrapper">
+        <section class="scoreboard" aria-live="polite">
+            <div class="score-item">
+                <span class="label">난이도</span>
+                <span id="difficulty-label" class="value">보통 (4×4)</span>
+            </div>
+            <div class="score-item">
+                <span class="label">이동 횟수</span>
+                <span id="move-count" class="value">0</span>
+            </div>
+            <div class="score-item">
+                <span class="label">시간</span>
+                <span id="time-elapsed" class="value">0:00</span>
+            </div>
+            <div class="score-item">
+                <span class="label">맞춘 쌍</span>
+                <span id="match-count" class="value">0/8</span>
+            </div>
+            <div class="score-item">
+                <span class="label">최고 기록</span>
+                <span id="best-record" class="value">--</span>
+            </div>
+            <button id="restart-btn" class="primary-btn" type="button">새 게임</button>
+        </section>
+
+        <section class="difficulty-controls" role="group" aria-label="난이도 선택">
+            <button class="difficulty-btn" type="button" data-difficulty="easy" aria-pressed="false">쉬움 (4×3)</button>
+            <button class="difficulty-btn active" type="button" data-difficulty="normal" aria-pressed="true">보통 (4×4)</button>
+            <button class="difficulty-btn" type="button" data-difficulty="hard" aria-pressed="false">어려움 (6×4)</button>
+        </section>
+
+        <section class="game-area" aria-label="카드 게임 영역">
+            <div id="game-grid" class="game-grid" role="grid" aria-live="polite"></div>
+            <div id="game-message" class="game-message" role="status" aria-live="assertive" hidden></div>
+        </section>
+
+        <section class="game-guide" aria-label="게임 방법">
+            <h2>게임 방법</h2>
+            <ol>
+                <li>카드를 선택해 두 장씩 뒤집어 같은 그림을 찾아보세요.</li>
+                <li>난이도를 바꾸면 카드 수와 최고 기록이 난이도에 맞게 조정돼요.</li>
+                <li>기록은 브라우저에 저장되어, 다음 방문 때도 이어집니다.</li>
+            </ol>
+        </section>
+    </main>
+
+    <footer class="page-footer">
+        <p>빠르게 매칭할수록 더 높은 점수를 얻을 수 있어요!</p>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
